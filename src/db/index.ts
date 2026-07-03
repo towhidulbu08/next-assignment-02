@@ -30,7 +30,7 @@ const initDB = async () => {
         description TEXT NOT NULL CHECK(LENGTH(description)>=20),
         type VARCHAR(20) NOT NULL CHECK(type IN('bug','feature_request')),
         status VARCHAR(30) DEFAULT 'open' CHECK (status IN('open','in_progress','resolved')),
-        reporter_id INT NOT NULL REFERENCES users(id), 
+        reporter_id INT NOT NULL, 
         created_at TIMESTAMP DEFAULT NOW(),
         updated_at TIMESTAMP DEFAULT NOW()
 
